@@ -1,8 +1,18 @@
 package com.cg.moodanalyser;
 
-public class MoodAnalyserTest {
-    public static void main(String[] args) {
-        System.out.println("Welcome to Mood analyzer");
+import org.junit.Assert;
+import org.junit.Test;
 
+public class MoodAnalyserTest {
+
+    MoodAnalyser moodAnalyserobj=new MoodAnalyser();
+    @Test
+    public void should_returnSad(){
+        Assert.assertEquals(moodAnalyserobj.analyseMood( "I am in Sad Mood" ),"SAD");
+    }
+
+    @Test
+    public void should_returnHappy(){
+        Assert.assertEquals(moodAnalyserobj.analyseMood( "I am in any Mood" ),"HAPPY");
     }
 }
