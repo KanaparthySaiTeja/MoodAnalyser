@@ -15,4 +15,8 @@ public class MoodAnalyserTest {
     public void should_returnHappy(){
         Assert.assertEquals(moodAnalyserobj.analyseMood( "I am in any Mood" ),"HAPPY");
     }
+    @Test
+    public void givenNull_Should_returnHappy(){
+        Assert.assertEquals(moodAnalyserobj.analyseMood(null),"HAPPY");
+    }
 }
