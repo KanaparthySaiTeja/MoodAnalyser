@@ -3,25 +3,27 @@ import java.util.Scanner;
 public class MoodAnalyser {
     private static String message;
 
-    public MoodAnalyser() {
+    enum ERROR{
+        EMPTY,NULL
     }
 
-    public MoodAnalyser(String message) {
+    public MoodAnalyzer(String message) {
         this.message=message;
     }
 
 
-    public String analyseMood() {
-        try {
-            if (message.contains( "Sad" )) {
-                return "SAD";
-            } else {
-                return "HAPPY";
-            }
-        } catch (NullPointerException e) {
+    public String analyseMood() throws MoodAnalyserException {
+
+        if (message.contains( "Sad" ))
+            return "SAD";
+        else if(message.contains( " " ))
+            throw new MoodAnalyserException( " Empty moood !! Enter valid mood"  );
+        else if (message.contains( null ))
+            throw new MoodAnalyserException( "Null mood!! Enter valid mood" ) ;
+        else
             return "HAPPY";
-        }
     }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Mood analyzer");
 
